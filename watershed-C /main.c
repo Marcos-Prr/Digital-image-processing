@@ -164,17 +164,23 @@ void imprimir_fila(Fila *fl) {
 unsigned char* organizar(int tam, unsigned char *vimagem) {
     unsigned char *organizado, hmin, hmax;
     unsigned char aux;
-    organizado = (unsigned char *) malloc(tam * sizeof(unsigned char));
-
+	unsigned char *vimagem2;
+	vimagem2 = (unsigned char *) malloc(tam * sizeof(unsigned char));
+	    
+	organizado = (unsigned char *) malloc(tam * sizeof(unsigned char));
+	
+	for(int i=0;i<tam;i++){
+		vimagem2[i]=vimagem[i];
+	}
     for (int i = 0; i < tam; i++) {
         for (int j = i + 1; j < tam; j++) {
-            if (vimagem[i] > vimagem[j]) {
-                aux = vimagem[i];
-                vimagem[i] = vimagem[j];
-                vimagem[j] = aux;
+            if (vimagem2[i] > vimagem2[j]) {
+                aux = vimagem2[i];
+                vimagem2[i] = vimagem2[j];
+                vimagem2[j] = aux;
             }
         }
-        organizado[i] = vimagem[i];
+        organizado[i] = vimagem2[i];
         printf("%hhu ",organizado[i]);
     }
 
