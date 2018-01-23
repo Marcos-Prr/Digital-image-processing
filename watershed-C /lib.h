@@ -11,6 +11,7 @@ typedef struct {
 	int tamanho;
 } Fila;
 
+unsigned char *organizar(int tam, unsigned char *vimagem);
 Fila* criar_fila(); //aloca uma nova fila.
 void inserir_final(Fila *fl, int valor); //insere um valor no final da fila.
 int remover_inicio(Fila *fl); //remove um valor da fila, de acordo com FIFO.
